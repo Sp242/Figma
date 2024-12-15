@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGO Oaffer Page</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+        }
+
+        .container {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 470px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* height: 100vh; */
+        }
+
+        h1 {
+            /* text-align: center; */
+            color: #FF6B82;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h1::before,
+        h1::after {
+            content: "";
+            display: inline-block;
+            width: 20%;
+            height: 1px;
+            background: #ddd;
+            vertical-align: middle;
+            margin: 1px 6px;
+        }
+
+        .offer-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            background: #fff;
+            transition: all 0.3s ease;
+            height: 85px;
+            overflow: hidden;
+        }
+
+        .offer-card.popular {
+            background: #fff;
+        }
+
+        .offer-card:has(input:checked) {
+            border-color: #FF6B82;
+            background: #fff8fa;
+            height: auto;
+        }
+
+        .most-popular-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #FF6B82;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 0 3px 0 12px;
+    transform: translateX(6px) translateY(-6px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+        .radio-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .radio-container input {
+            visibility: hidden;
+        }
+
+        .dropdown-label,
+        .labelNo {
+            font-size: 12px;
+        }
+
+        .labelNo {
+            visibility: hidden;
+        }
+
+        .custom-radio {
+            height: 16px;
+            width: 16px;
+            border: 2px solid #ccc;
+            margin-right: 10px;
+            padding: 5px;
+            border-radius: 50px;
+        }
+
+        .radio-container input:checked~.custom-radio {
+            border: 3px solid lightgrey;
+            background: #FF6B82;
+            outline: 1px solid #FF6B82;
+        }
+
+        .unit-label {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .discount {
+            background: #FF6B82;
+            color: #fff;
+            font-size: 13px;
+            padding: 4px 11px;
+            margin-left: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .strike-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .subtext {
+            font-size: 12px;
+            color: #000000;
+            margin-top: 5px;
+            margin-left: 40px;
+        }
+
+        .options {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 30px;
+            gap: 10px;
+        }
+
+        .label-width {
+            width: 84px;
+        }
+
+        .dropdowns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 84px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .free-delivery {
+            color: #FF6B82;
+        }
+
+        .total {
+            text-align: center;
+            color: #FF6B82;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: #FF6B82;
+            color: white;
+            border: none;
+            padding: 15px;
+
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background: #ff4370;
+        }
+
+        .powered-by {
+            text-align: end;
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>YAY! It's BOGO</h1>
+
+        <!-- 1 Unit Section -->
+        <div class="offer-card">
+            <label class="radio-container">
+                <input type="radio" name="unit" value="1" checked>
+                <span class="custom-radio"></span>
+                <span class="unit-label">
+                    1 Unit
+                    <span class="discount">10% Off</span>
+                </span>
+                <span class="price">$10.00 USD</span>
+                <span class="strike-price">$24.00 USD</span>
+            </label>
+            <div class="subtext">Standard Price</div>
+            <div class="options">
+                <div class="dropdowns">
+                    <label class="labelNo" for=""> #1</label>
+                    <label class="dropdown-label label-width">Size</label>
+                    <label class="dropdown-label label-width">Colour</label>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #1 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #2 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- 2 Units Section -->
+        <div class="offer-card popular">
+            <div class="most-popular-tag">MOST POPULAR</div>
+            <label class="radio-container">
+                <input type="radio" name="unit" value="2">
+                <span class="custom-radio"></span>
+                <span class="unit-label">
+                    2 Units
+                    <span class="discount">20% Off</span>
+                </span>
+                <span class="price">$18.00 USD</span>
+                <span class="strike-price">$24.00 USD</span>
+            </label>
+            <div class="options">
+                <div class="dropdowns">
+                    <label class="labelNo" for=""> #1</label>
+                    <label class="dropdown-label label-width">Size</label>
+                    <label class="dropdown-label label-width">Colour</label>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #1 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #2 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Units Section -->
+        <div class="offer-card">
+            <label class="radio-container">
+                <input type="radio" name="unit" value="3">
+                <span class="custom-radio"></span>
+                <span class="unit-label">
+                    3 Units
+                    <span class="discount">30% Off</span>
+                </span>
+                <span class="price">$24.00 USD</span>
+                <span class="strike-price">$24.00 USD</span>
+            </label>
+            <div class="options">
+                <div class="dropdowns">
+                    <label class="labelNo" for=""> #1</label>
+                    <label class="dropdown-label label-width">Size</label>
+                    <label class="dropdown-label label-width">Colour</label>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #1 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdowns">
+                    <label class="dropdown-label" for=""> #2 </label>
+                    <div>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="free-delivery">Free Delivery</div>
+            <div class="total">Total: $10.00 USD</div>
+        </div>
+
+        <button class="add-to-cart">+ Add to Cart</button>
+        <div class="powered-by">@Powered by Pumper</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const radios = document.querySelectorAll('input[name="unit"]');
+            const totalPrice = document.querySelector('.total');
+
+            const prices = {
+                "1": "$10.00 USD",
+                "2": "$18.00 USD",
+                "3": "$24.00 USD"
+            };
+
+            function updateCardStyles() {
+                document.querySelectorAll('.offer-card').forEach(card => {
+                    const radio = card.querySelector('input[type="radio"]');
+                    const options = card.querySelector('.options');
+
+                    if (radio.checked) {
+                        card.style.borderColor = '#ff4081';
+                        card.style.background = '#fff8fa';
+                        card.style.height = 'auto';
+                        if (options) {
+                            options.style.display = 'flex';
+                            options.style.flexDirection = 'column';
+                        }
+                    } else {
+                        card.style.borderColor = '#ddd';
+                        card.style.background = '#fff';
+                        card.style.height = '85px';
+                        if (options) {
+                            options.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            radios.forEach((radio) => {
+                radio.addEventListener("change", function () {
+                    totalPrice.innerText = `Total: ${prices[this.value]}`;
+                    updateCardStyles();
+                });
+            });
+
+            // Initialize styles on page load
+            updateCardStyles();
+        });
+    </script>
+</body>
+
+</html>
